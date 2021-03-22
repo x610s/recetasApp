@@ -1,0 +1,23 @@
+.receta-wrapper{
+
+    
+    min-height: 1000px !important;
+    &-top{
+       display: flex;
+       flex-flow: row wrap;
+       flex-flow: 1;
+        border-radius: 20px !important;
+
+    }
+
+
+    img{
+        width: 50% !important;
+        border-radius: 20px !important;
+    }
+    .receta-wrapper-top-der{
+        padding: 2rem !important;
+        flex-basis: 50% !important;
+    }
+
+}

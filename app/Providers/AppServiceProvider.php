@@ -2,27 +2,21 @@
 
 namespace App\Providers;
 
+use App\Repository\I_RecetaRepository;
+use App\Repository\Impl_RecetaRepository;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
 {
-    /**
-     * Register any application services.
-     *
-     * @return void
-     */
+   
     public function register()
     {
         //
     }
 
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
+  
     public function boot()
     {
-        //
+        $this->app->bind(I_RecetaRepository::class,Impl_RecetaRepository::class);
     }
 }

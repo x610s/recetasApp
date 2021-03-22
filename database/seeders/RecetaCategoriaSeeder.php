@@ -16,11 +16,11 @@ class RecetaCategoriaSeeder extends Seeder
     {
         DB::table('recetas_categorias')->truncate();
 
-        for ($i=1; $i <=5 ; $i++) { 
-            for ($j=1; $j <=3 ; $j++) { 
+        for ($i=1; $i <=30 ; $i++) { 
+            for ($j=1; $j <=8 ; $j++) { 
                 DB::table('recetas_categorias')->insert([
                     'receta_id' => $i,
-                    'categoria_id' => rand(1, 10)
+                    'categoria_id' => rand(1, 8)
                 ]);
             }
         }

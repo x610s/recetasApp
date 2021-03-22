@@ -18,7 +18,8 @@ class RecetaStoreRequest extends FormRequest
             'name' => ['required','min:3'],
             'ingredientes'  => ['required','min:20'],
             'preparacion'  => ['required','min:20'],
-            'avatar' => ['nullable']
+            'categorias' => ['required'],
+            'avatar' => ['required','image','max:1000']
         ];
     }
 }

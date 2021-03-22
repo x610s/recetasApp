@@ -18,9 +18,10 @@
 
     @forelse ($recetas as $item)
     <tr>
-      <td> {{$item->name}} </td>
       <td>
-   {{--   {{$item->categorias->pluck('name')->implode(' ')}}  --}}
+      <a href="{{route('recetas.show',$item->id)}}"> {{$item->name}} </a>  
+      </td>
+      <td>
       @forelse ($item->categorias->pluck('name') as $categoria)
       <span class="badge bg-primary text-white">{{$categoria}}</span>
       @empty
