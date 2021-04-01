@@ -16,7 +16,7 @@ class RecetaController extends Controller
     public function __construct(I_RecetaRepository $recetaRepository)
     {
         $this->recetaDAO = $recetaRepository;
-        $this->middleware('auth');
+        $this->middleware('auth', ['except' =>'show']);
     }
 
     public function index()
@@ -63,6 +63,6 @@ class RecetaController extends Controller
 
     public function destroy(Receta $receta)
     {
-        //
+        return $this->recetaDAO->deleteReceta($receta->id);
     }
 }

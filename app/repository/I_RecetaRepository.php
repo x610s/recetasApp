@@ -7,6 +7,6 @@ namespace App\Repository;
     public function storeReceta($request);
     public function createReceta();
     public function showReceta($id);
-
+    public function deleteReceta($id);
  }
 ?>

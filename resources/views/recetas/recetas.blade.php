@@ -28,14 +28,13 @@
           <small>No hay categorías para esta receta :(</small>
       @endforelse
       </td>
-      <td> <button class="btn btn-outline-primary">
+      <td> 
+        <button class="btn btn-outline-primary">
         Editar  
       </button>
- 
-      <button class="btn btn-outline-danger">
-        Eliminar  
-      </button>
-    </td>
+      <delete-receta value="{{$item->id}}"></delete-receta> 
+
+      </td>
     </tr>
     @empty
           <h2 class="text-muted">No tienes recetas aún</h2>
@@ -43,4 +42,9 @@
   
     </tbody>
   </table>
+@endsection
+
+
+@section('scripts')
+    
 @endsection

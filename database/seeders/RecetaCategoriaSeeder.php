@@ -16,7 +16,7 @@ class RecetaCategoriaSeeder extends Seeder
     {
         DB::table('recetas_categorias')->truncate();
 
-        for ($i=1; $i <=30 ; $i++) { 
+        for ($i=1; $i <=5 ; $i++) { 
             for ($j=1; $j <=8 ; $j++) { 
                 DB::table('recetas_categorias')->insert([
                     'receta_id' => $i,

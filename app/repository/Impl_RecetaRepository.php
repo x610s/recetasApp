@@ -12,7 +12,7 @@ class Impl_RecetaRepository implements I_RecetaRepository
     {
         $receta = $request->except('categorias', 'avatar');
         $receta['user_id'] = auth()->user()->id;
-        $this->updateImage($request);
+        $receta['avatar'] =  $this->updateImage($request);
         $nuevaReceta = Receta::create($receta);
         $this->assignedCategorias($request, $nuevaReceta);
     }
@@ -31,11 +31,17 @@ class Impl_RecetaRepository implements I_RecetaRepository
 
     public function updateImage($request)
     {
-        $receta['avatar'] = $request['avatar']->store('uploads-recetas', 'public');
+        return $request['avatar']->store('uploads-recetas', 'public');
     }
     public function assignedCategorias($request, $nuevaReceta)
     {
         $categorias = $request->only('categorias');
         $nuevaReceta->categorias()->attach($categorias['categorias']);
+    }
+
+    public function deleteReceta($id)
+    {
+        $receta = Receta::findOrFail($id);
+        return $receta->delete();
     }
 }

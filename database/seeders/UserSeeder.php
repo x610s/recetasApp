@@ -18,7 +18,7 @@ class UserSeeder extends Seeder
     {
         User::truncate();
 
-        for ($i=1; $i <=10 ; $i++) { 
+        for ($i=1; $i <5 ; $i++) { 
                  User::create([
                 'name' => Str::random(10),
                 'email' => 'user'.$i.'@gmail.com',

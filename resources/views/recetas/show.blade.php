@@ -11,7 +11,7 @@
 
 
         <div class="shadow receta-wrapper-top">
-            <img src="{{Storage::url($receta->avatar)}}"  alt="{{$receta->avatar}}" >
+            <img src="{{Storage::url($receta->avatar)}}"  alt="{{$receta->avatar}}" class="vh-50">
 
             
             <div class="py-4 receta-wrapper-top-der"> 
@@ -29,11 +29,10 @@
                    <span class="badge rounded-pill bg-info text-white p-2 my-1"> {{$item}} </span>
                     @endforeach 
                 </div>
-
                 <div >
                     <small class="text-muted">Fecha: </small>
-                    <fecha-receta></fecha-receta>
-                 
+                     <fecha-receta date="{{$receta->created_at}}"></fecha-receta>
+                     <small class="text-muted">Autor: <b> {{$receta->user->name}} </b> </small>
                 </div>
             </div> 
         </div>
