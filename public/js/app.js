@@ -1867,9 +1867,12 @@ __webpack_require__.r(__webpack_exports__);
         confirmButtonText: "Si, eliminar"
       }).then(function (result) {
         if (result.isConfirmed) {
+          console.log(_this.value);
           axios["delete"]("recetas/".concat(_this.value)).then(function () {
             window.location.reload();
-          })["catch"](function () {
+          })["catch"](function (e) {
+            console.log(e);
+
             _this.$swal.fire("Errorr!", "La receta no pudo ser eliminar", "warning");
           });
         }

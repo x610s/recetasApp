@@ -21,12 +21,14 @@ export default {
         confirmButtonText: "Si, eliminar",
       }).then((result) => {
         if (result.isConfirmed) {
-               axios.delete(`recetas/${this.value}`)
+          console.log(this.value)
+              axios.delete(`recetas/${this.value}`)
           .then(()=>{
                  window.location.reload(); 
-          }).catch(()=>{
+          }).catch((e)=>{
+              console.log(e);
              this.$swal.fire("Errorr!", "La receta no pudo ser eliminar", "warning");
-          })
+          }) 
         }
       }).catch((e)=>{
           console.log(e)

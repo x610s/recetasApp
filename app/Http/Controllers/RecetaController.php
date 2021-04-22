@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\RecetaStoreRequest;
+use App\Http\Requests\UpdateUserRequest;
 use App\Models\Categoria;
 use App\Models\Receta;
 use App\Models\User;
@@ -29,7 +30,7 @@ class RecetaController extends Controller
 
     public function create()
     {
-        $categorias = $this->recetaDAO->createReceta();
+        $categorias = $this->recetaDAO->categorias();
         return view('recetas.crear', compact('categorias'));
     }
 
@@ -43,22 +44,23 @@ class RecetaController extends Controller
 
     public function show($receta)
     {
-
        $receta = $this->recetaDAO->showReceta($receta);
-
        return view('recetas.show',compact('receta'));
     }
 
 
     public function edit(Receta $receta)
     {
-        //
+        $receta =  Receta::findOrFail($receta->id);
+        $categorias = $this->recetaDAO->categorias();
+        return view('recetas.edit',compact('receta','categorias'));
     }
 
 
-    public function update(Request $request, Receta $receta)
+    public function update(UpdateUserRequest $request, Receta $receta)
     {
-        //
+       $updateUser = $this->recetaDAO->editarReceta($request,$receta);
+       return redirect()->route('recetas.show', $updateUser);
     }
 
     public function destroy(Receta $receta)

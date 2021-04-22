@@ -29,9 +29,9 @@
       @endforelse
       </td>
       <td> 
-        <button class="btn btn-outline-primary">
-        Editar  
-      </button>
+        <a class="btn btn-outline-primary" href="{{route('recetas.edit',$item->id)}}">
+        Editar
+        </a>
       <delete-receta value="{{$item->id}}"></delete-receta> 
 
       </td>
